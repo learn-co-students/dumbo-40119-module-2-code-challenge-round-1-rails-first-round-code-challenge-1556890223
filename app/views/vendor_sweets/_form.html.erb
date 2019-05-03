@@ -1,0 +1,15 @@
+<%= form_for @vendor_sweet do |f| %>
+
+<% if @vendor_sweet.errors.full_messages.any? %>
+  <% @vendor_sweet.errors.full_messages.each do |error_message| %>
+    <%= error_message if @vendor_sweet.errors.full_messages.first == error_message %> <br />
+  <% end %>
+<% end %>
+
+<%= f.label :price %>
+<%= f.number_field :price%>
+
+<%= f.collection_select :vendor_id, Vendor.all, :id, :name %>
+<%= f.collection_select :sweet_id, Sweet.all, :id, :name %>
+<%= f.submit %>
+<% end %>

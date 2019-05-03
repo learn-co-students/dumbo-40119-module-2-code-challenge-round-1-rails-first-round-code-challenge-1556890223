@@ -11,5 +11,9 @@
   <li><%=link_to s.name, sweet_path(s)%></li>
         <% end %></ul>
 
+  <%= mail_to @vendor.email do %>
+  <strong>💌 Contact this vendor 💌 </strong>
+  <% end %>
+
 <% end %>
 <br>

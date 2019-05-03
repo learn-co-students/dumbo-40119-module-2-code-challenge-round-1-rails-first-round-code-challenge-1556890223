@@ -1,0 +1,20 @@
+<ol class="errors">
+  <% @sweet.errors.full_messages.each do |message| %>
+    <li>
+      <%= message %>
+    </li>
+  <% end %>
+</ol>
+
+<%= form_for @sweet do |f| %>
+
+  <ul>
+    <li>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </li>
+  </ul>
+
+  <%= f.submit %>
+
+<% end %>

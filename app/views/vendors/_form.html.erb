@@ -1,0 +1,20 @@
+<ol class="errors">
+  <% @vendor.errors.full_messages.each do |message| %>
+    <li>
+      <%= message %>
+    </li>
+  <% end %>
+</ol>
+
+<%= form_for @vendor do |f| %>
+
+  <ul>
+    <li>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </li>
+  </ul>
+
+  <%= f.submit %>
+
+<% end %>

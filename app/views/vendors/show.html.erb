@@ -1,0 +1,15 @@
+<h1>Vendor</h1>
+<%= link_to "Edit #{ @vendor.name }", edit_vendor_path(@vendor) %>
+<hr>
+<h3> Name :<%= @vendor.name %> </h3>
+<br>
+
+<hr>
+
+<ul>
+  <%= @vendor.sweets.each do |sweet| %>
+  <h4>Sweets</h4>
+  <li><%= link_to sweet.name, sweet_path(sweet)%></li>
+
+  <% end %>
+</ul>

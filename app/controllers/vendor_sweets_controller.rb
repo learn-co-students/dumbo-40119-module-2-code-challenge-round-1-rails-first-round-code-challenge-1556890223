@@ -1,5 +1,5 @@
 class VendorSweetsController < ApplicationController
-  before_action :get_vendor_sweet, only: [:show, :destroy]
+  before_action :get_vendor_sweet, only: [:show]
 
   def index
     @vendor_sweets = VendorSweet.all
@@ -10,19 +10,18 @@ class VendorSweetsController < ApplicationController
   end
 
   def create
-    @vendor = Vendor.find(params[:id])
-    if @vendor_sweet.create(vendor_sweet_params)
-      redirect_to @vendor
+    @vendor_sweet = VendorSweet.new(vs_params)
+  if @vendor_sweet.valid?
+    @vendor_sweet.save
+      redirect_to vendor_path(@vendor_sweet.vendor_id)
     else
       render :new
     end
   end
 
-end
-
 private
 
-def vendor_sweet_params
+def vs_params
   params.require(:vendor_sweet).permit(:price, :vendor_id, :sweet_id)
 end
 

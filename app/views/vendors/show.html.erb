@@ -1,11 +1,15 @@
 <%= render 'header' %>
 
-<h1> <%= @vendor.name%>:</h1><br>
+<h1> <%= @vendor.name%></h1><br>
 
-<p><strong>Here are all the sweets you can get from this vendor:</strong>
-<ul>
-<% @vendor.sweets.each do |s| %>
-  <li><%=link_to s.name, @sweet_path(s)%></li>
-  <% end %>
-</ul>
+<% if @vendor.sweets.first == nil %>
+  <p>This vendor is just beginning their sweet journey with us! </p>
+  <p>Check in soon to see their cookies! </p>
+<%else %>
+  <p><strong>Here are all the sweets you can get from this vendor:</strong>
+    <ul><% @vendor.sweets.uniq.each do |s| %>
+  <li><%=link_to s.name, sweet_path(s)%></li>
+        <% end %></ul>
+
+<% end %>
 <br>

@@ -1,7 +1,11 @@
-<h1>All Sweets</h1>
+<h1> 🍪 Sweets Index 🍪 </h1>
+
+  <%= button_to "Create New", new_vendor_sweet_path, :method => :get %><br>
+
+<h3>Select a Vendor to view their Sweets:</h3>
 
 <ul>
   <% @sweets.each do |sweet| %>
-    <li><%= sweet.name %></li>
+    <li>🍬 <%= link_to sweet.name, sweet_path(sweet) %></li>
   <% end  %>
 </ul>

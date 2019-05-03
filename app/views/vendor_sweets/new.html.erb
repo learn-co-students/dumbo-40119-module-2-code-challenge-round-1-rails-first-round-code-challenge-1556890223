@@ -1,0 +1,24 @@
+<h1>Create New Form</h1>
+
+<ol>
+  <% @vendor_sweet.errors.full_messages.each do |message| %>
+    <li style="color:red;">
+      <%= message %>
+    </li>
+  <% end %>
+</ol>
+
+<%= form_for @vendor_sweet do |f|%>
+
+<%= f.label :sweet %>
+<%= f.collection_select(:sweet_id, Sweet.all, :id, :name) %><br>
+
+<%= f.label :vendor %>
+<%= f.collection_select(:vendor_id, Vendor.all, :id, :name) %><br>
+
+<%= f.label :price %>
+<%= f.number_field :price %><br>
+
+<%= f.submit %>
+
+<% end %>

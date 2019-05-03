@@ -1,0 +1,12 @@
+<%= render 'header' %>
+
+<%= form_for @vendor_sweet do |f| %>
+<%= f.label :price %>
+<%= f.number_field :price %><br>
+<%= f.label :vendor_id %>
+<%= f.collection_select :vendor_id, Vendor.all, :id, :name %><br>
+<%= f.label :sweet_id %>
+<%= f.collection_select :sweet_id, Sweet.all, :id, :name %><br>
+
+<%= f.submit %>
+<% end %>

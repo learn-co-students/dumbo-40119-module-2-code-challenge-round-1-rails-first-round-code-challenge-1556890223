@@ -1,0 +1,7 @@
+<ol class="errors">
+  <% @vendor_sweet.errors.full_messages.each do |vs| %>
+  <li><%= vs %></li>
+  <% end %>
+</ol>
+
+<%= render 'form' %>

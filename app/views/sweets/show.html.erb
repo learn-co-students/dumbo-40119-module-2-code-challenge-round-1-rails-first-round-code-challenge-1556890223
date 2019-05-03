@@ -1,0 +1,11 @@
+<%= render 'header' %>
+
+<h1> <%= @sweet.name%>:</h1><br>
+
+<p><strong>Here are all vendors you can get this sweet from:</strong>
+<ul>
+<% @sweet.vendors.each do |v| %>
+  <li><%=link_to v.name, @vendor_path(v)%></li>
+  <% end %>
+</ul>
+<br>

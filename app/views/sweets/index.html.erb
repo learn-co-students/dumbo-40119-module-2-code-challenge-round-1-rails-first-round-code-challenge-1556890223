@@ -1,7 +1,8 @@
-<h1>All Sweets</h1>
+<%= render 'header' %>
+<h1>Enjoy our sweets</h1>
 
 <ul>
   <% @sweets.each do |sweet| %>
-    <li><%= sweet.name %></li>
+    <li><%= link_to sweet.name, sweet_path(sweet) %></li>
   <% end  %>
 </ul>

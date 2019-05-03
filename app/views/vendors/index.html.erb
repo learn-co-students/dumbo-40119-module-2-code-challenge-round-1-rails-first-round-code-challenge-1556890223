@@ -1,7 +1,10 @@
 <h1>All Vendors</h1>
 
 <ul>
+  <%# displays vendors and redirects to their show page%>
   <% @vendors.each do |vendor| %>
-    <li><%= vendor.name %></li>
+    <li><%= link_to vendor.name, vendor_path(vendor) %></li>
   <% end  %>
 </ul>
+
+<%= link_to "Add new sweet", new_vendor_sweet_path%>

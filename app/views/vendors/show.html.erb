@@ -1,0 +1,12 @@
+<h1><%="#{@vendor.name}"%></h1>
+
+<h2>List of Cookies</h2>
+
+<ul>
+    <%@vendor.sweets.each do |sweet|%>
+        <li><%=sweet.name%></li>
+    <%end%>
+</ul>
+
+<%= link_to "Back to Vendor", vendors_path%>
+

@@ -1,0 +1,12 @@
+<h1><%="#{@sweet.name}"%></h1>
+
+<h2>List of Sweets</h2>
+
+<ul>
+    <%@sweet.vendors.each do |vendor|%>
+        <li><%=vendor.name%></li>
+    <%end%>
+</ul>
+
+<%= link_to "Back to Sweets", sweets_path%>
+

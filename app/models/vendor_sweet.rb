@@ -6,5 +6,6 @@ class VendorSweet < ApplicationRecord
     validates_numericality_of :price, {
         greater_than: 0
     } 
-    #don't forget to find the float
+    
+    validates_uniqueness_of :sweet_id, :vendor_id
 end

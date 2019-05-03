@@ -18,7 +18,7 @@ class VendorSweetsController < ApplicationController
   #the if the transaction for creation is valid it will redirect to the vendors page
   #if not valid it will render :new again with the error messages displayed
 
-  #is validating in the cmd but the syntax above does not work.
+  #validating is working in the cmd but the syntax above does not work.
 
   private
 

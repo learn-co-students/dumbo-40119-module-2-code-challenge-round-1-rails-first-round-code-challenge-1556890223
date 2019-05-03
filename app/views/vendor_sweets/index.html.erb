@@ -1,0 +1,5 @@
+<h1>Vendor Sweet List</h1>
+
+<% @vendorsweets.each do |vendorsweet|%>
+<li><%= link_to "#{vendorsweet.price}", vendorsweet%></li>
+<%end%>

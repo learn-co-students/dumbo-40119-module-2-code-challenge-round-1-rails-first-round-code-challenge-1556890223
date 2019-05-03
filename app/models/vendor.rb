@@ -3,8 +3,12 @@ class Vendor < ApplicationRecord
   has_many :sweets, through: :vendor_sweets
 
   def email
-    @alias = self.name.to_s.split().join(".").downcase.delete! "'"
-    return "#{@alias}@candykingdom.com"
+    if self.name.to_s.include? ("'")
+      @alias = self.name.to_s.split().join(".").downcase.delete! "'"
+    else
+      @alias = self.name.to_s.split().join(".").downcase
+      return "#{@alias}@candykingdom.com"
+    end
   end
 
 end

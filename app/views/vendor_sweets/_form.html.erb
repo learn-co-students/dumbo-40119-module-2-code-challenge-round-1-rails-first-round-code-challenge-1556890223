@@ -1,0 +1,13 @@
+<%= form_for @vendorsweet do |form| %>
+
+<%= form.label :vendor %>
+<%= form.collection_select :vendor_id, Vendor.all, :id, :name %>
+
+<%= form.label :sweet %>
+<%= form.collection_select :sweet_id, Sweet.all, :id, :name %>
+
+<%= form.label :price %>
+<%= form.number_field :price %>
+
+<%= form.submit %>
+<% end %>

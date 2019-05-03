@@ -1,0 +1,11 @@
+<h1>This is the sweet: <%= @sweet.name %></h1>
+
+<h2>It has been sold at these prices:</h2>
+
+<ul>
+	<% @sweet.vendor_sweets.each do |vendor_sweet| %>
+		<li>
+			<%= vendor_sweet.price_sold %> - <%= vendor_sweet.vendor.name%>
+		</li>
+	<% end %>
+</ul>

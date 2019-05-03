@@ -1,0 +1,11 @@
+<h1>Here are all the VendorSweets transactions:</h1>
+
+<%= button_to "Create a new VendorSweet", new_vendor_sweet_path, method: :get %>
+
+<ul>
+	<% @vendorsweets.each do |vendorsweet| %>
+		<li>
+			<%= link_to vendorsweet.price_sold, vendorsweet %>
+		</li>
+	<% end %>
+</ul>

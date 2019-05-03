@@ -1,0 +1,24 @@
+<h1>Form:</h1>
+
+<ol>
+	<% @vendorsweet.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg%>
+		</li>
+	<% end %>
+</ol>
+
+
+<%= form_for @vendorsweet do |f| %>
+	<%= f.label :vendor %>
+	<%= f.collection_select :vendor_id, @vendors, :id, :name %><br>
+
+	<%= f.label :sweet %>
+	<%= f.collection_select :sweet_id, @sweets, :id, :name %><br>
+
+	<%= f.label :price_sold %>
+	<%# f.number_field :price_sold, :step => "0.01" %>
+	<%= f.number_field :price_sold, :class => 'text_field', :step => "0.01" %>
+
+	<%= f.submit %>
+<% end %>

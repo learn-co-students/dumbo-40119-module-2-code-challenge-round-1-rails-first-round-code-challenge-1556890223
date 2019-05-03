@@ -1,0 +1,17 @@
+<h1>Sweet Form</h1>
+
+
+    <% @sweet.errors.full_messages.each do |msg| %>
+      <li>
+        <%= msg %>
+      </li>
+    <% end %>
+
+
+<%= form_for @sweet do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.submit %>
+
+<% end %>

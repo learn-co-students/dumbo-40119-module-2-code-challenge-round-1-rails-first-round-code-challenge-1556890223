@@ -1,7 +1,12 @@
+<%= render "/vendor_sweets/nav" %> <br><br>
+
 <h1>All Vendors</h1>
 
 <ul>
   <% @vendors.each do |vendor| %>
-    <li><%= vendor.name %></li>
-  <% end  %>
+    <li><%= link_to vendor.name, vendor %></li>
+  <% end %>
 </ul>
+
+<br>
+<%= link_to "Create a new Vendor!", new_vendor_path %>

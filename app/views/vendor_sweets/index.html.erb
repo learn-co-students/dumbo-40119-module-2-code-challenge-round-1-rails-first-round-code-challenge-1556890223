@@ -1,0 +1,22 @@
+<%= render "nav" %> <br><br>
+
+<h1>All Vendor Sweets Index Page!</h1>
+
+<!-- <ul>
+  <% @vendor_sweets.each do |vendor_sweet| %>
+    <li>VENDOR: <%= link_to vendor_sweet.vendor.name, vendor_sweet.vendor %></li>
+    <li>SWEET: <%= link_to vendor_sweet.sweet.name, vendor_sweet.sweet %></li>
+    <br><br>
+  <% end %>
+</ul> -->
+
+
+<ol>
+  <% @vendor_sweets.each do |vendor_sweet| %>
+    <li>VENDOR_SWEET <%= link_to vendor_sweet.id, vendor_sweet %> This SWEET name is <%= link_to vendor_sweet.sweet.name, vendor_sweet.sweet %> from this VENDOR at <%= link_to vendor_sweet.vendor.name, vendor_sweet.vendor %>. </li>
+    <br><br>
+  <% end %>
+</ol>
+
+
+<%= link_to "Create a new Vendor Sweet!", new_vendor_sweet_path %>

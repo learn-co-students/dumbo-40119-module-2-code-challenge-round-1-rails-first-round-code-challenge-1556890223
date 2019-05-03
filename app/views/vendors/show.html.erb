@@ -1,0 +1,17 @@
+<%= render "/vendor_sweets/nav" %> <br><br>
+
+<h1>Vendor Show Page</h1>
+
+    <p><%= @vendor.name %> has this list of sweets! </p>
+
+
+    <ul>
+      <% @vendor.sweets.each do |sweet| %>
+        <li><%= link_to sweet.name, sweet %></li>
+      <% end %>
+    </ul>
+
+
+    <br><br>
+    <%= link_to "Edit this Vendor", edit_vendor_path(@vendor) %> <br>
+    <%= button_to "Delete this Vendor", vendors_path(@vendor), method: :delete %>

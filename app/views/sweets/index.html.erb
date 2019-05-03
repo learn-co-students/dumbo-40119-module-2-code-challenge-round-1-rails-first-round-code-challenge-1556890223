@@ -1,7 +1,11 @@
+<%= render "/vendor_sweets/nav" %> <br><br>
+
 <h1>All Sweets</h1>
 
 <ul>
   <% @sweets.each do |sweet| %>
-    <li><%= sweet.name %></li>
+    <li><%= link_to sweet.name, sweet %></li>
   <% end  %>
 </ul>
+
+<%= link_to "Create a new Sweet!", new_sweet_path %>

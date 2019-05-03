@@ -1,0 +1,27 @@
+<% if @vendorsweet.errors.any? %>
+  <ul>
+  <% @vendorsweet.errors.full_messages.each do |msg| %>
+    <% if msg == "Sweet has already been taken" %>
+      <li class="errors">Sweet is already sold by that vendor</li>
+    <% else %>
+      <li class="errors"><%= msg %></li>
+    <% end %>
+  <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @vendorsweet do |f| %>
+  <br>
+  <%= f.label :price, "Price (in cents)"%>
+  <%= f.number_field :price %>
+  <br>
+  <%= f.label :vendor_id, "Vendor" %>
+  <%= f.collection_select :vendor_id, Vendor.all, :id, :name %>
+  <br>
+  <%= f.label :sweet_id, "Sweet" %>
+  <%= f.collection_select :sweet_id, Sweet.all, :id, :name %>
+  <br><br><br>
+  <%= f.submit %>
+  <% end %>
+  <br><br><br><br>
+<%= link_to "Go Back", vendors_path, method: :get %>

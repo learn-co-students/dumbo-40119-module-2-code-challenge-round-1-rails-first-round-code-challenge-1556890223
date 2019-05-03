@@ -1,0 +1,19 @@
+<%= render 'header' %>
+
+<h1><%= @vendor.name %></h1>
+
+<ul>
+  <% @vendor.sweets.each do |sweet| %>
+  <% @vendor_sweet = sweet.vendor_sweets.find{|vs| vs.vendor_id == @vendor.id} %>
+  <li>
+    <%= link_to sweet.name, sweet %> for
+    <% if @vendor_sweet.price > 100 %>
+      $<%= @vendor_sweet.price.to_s.reverse.gsub(/(\d{2})/, '\\1.').reverse %>
+    <% else %>
+      <%= @vendor_sweet.price %>¢
+    <% end %>
+    <!-- I ran out of time to add the edit, but that's what I would do next -->
+    <!-- <%= button_to "Edit Item", @vendor_sweet %> -->
+  </li>
+  <% end %>
+</ul>

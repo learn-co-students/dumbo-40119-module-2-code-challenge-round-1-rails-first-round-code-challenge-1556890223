@@ -6,3 +6,6 @@ class CreateVendors < ActiveRecord::Migration[5.1]
     end
   end
 end
+
+
+# rails g resource Giver name:string location:string — no-test-fr

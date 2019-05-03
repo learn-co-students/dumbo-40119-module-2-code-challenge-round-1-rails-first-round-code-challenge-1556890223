@@ -1,7 +1,13 @@
+<%= link_to "Vendor Index", vendors_path %></br>
+<%= link_to "Create VendorsSweets", vendor_sweets_path %>
+
 <h1>All Sweets</h1>
 
 <ul>
   <% @sweets.each do |sweet| %>
-    <li><%= sweet.name %></li>
+    <li><%= link_to sweet.name, sweet_path(sweet) %></li>
   <% end  %>
 </ul>
+
+
+

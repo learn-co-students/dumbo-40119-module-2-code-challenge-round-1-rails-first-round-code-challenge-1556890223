@@ -1,0 +1,12 @@
+<%= link_to "Vendors Index", vendors_path %>
+
+<hr>
+
+<h1> <%= @vendor.name %> </h1>
+
+<ul>
+<% @vendor.sweets.each do |sweet| %>
+   <li> <%= sweet.name %> </li>
+<% end %>
+</ul>
+

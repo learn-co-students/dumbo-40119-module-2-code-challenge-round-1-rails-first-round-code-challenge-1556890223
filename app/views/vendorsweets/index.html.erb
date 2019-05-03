@@ -1,0 +1,23 @@
+#form_for choose: vendor, sweet, and create VendorSweet.
+should include a dropdown to select "vendor"
+dropdown for "sweet"
+dropdown to input the "price"
+
+
+<h1>Welcome to VendorSweet's</h1>
+
+<h3>Sweets</h3>
+<%= form_for "#{@sweet}" do |f|%>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.submit %>
+<%end%>
+<br>
+<h3>Vendors</h3>
+<%= form_for "#{@vendor}" do |f|%>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.submit %>
+<%end%>
+<br>
+<%=button_to "Create a Vendorsweet",new_vendorsweet_path%>

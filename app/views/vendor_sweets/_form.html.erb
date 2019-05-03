@@ -1,0 +1,19 @@
+<ul style="color:red">
+  <% @vendor_sweet.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+</ul>
+
+
+<%= form_for @vendor_sweet do |form| %>
+  <%= form.label :price %>
+  <%= form.number_field :price %>
+  <br>
+  <%= form.label :vendor_id %>
+  <%= form.collection_select :vendor_id, @vendors, :id, :name %>
+  <br>
+  <%= form.label :sweet_id %>
+  <%= form.collection_select :sweet_id, @sweets, :id, :name %>
+  <br>
+  <%= form.submit %>
+<% end %>

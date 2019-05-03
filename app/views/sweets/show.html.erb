@@ -1,0 +1,13 @@
+<h1><%= @sweet.name %> </h1>
+
+Vendors That Sell This Sweet:
+<ul>
+  <% @sweet.vendors.uniq.each do |vendor| %>
+    <li>
+      <%= link_to "#{vendor.name}", vendor %>
+    </li>
+  <% end %>
+</ul>
+
+
+<%= button_to "Add Another Sweet To The List of Any Vendor", new_vendor_sweet_path, method: :get %>

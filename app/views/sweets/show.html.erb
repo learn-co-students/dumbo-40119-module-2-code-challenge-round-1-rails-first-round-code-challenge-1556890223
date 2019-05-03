@@ -1,10 +1,12 @@
 <h1><%= @sweet.name  %> </h1>
 
+  <%= button_to "Add Vendor", new_vendor_sweet_path, :method => :get %>
+
 <h3>Our Delectible Vendors:</h3>
 <ul>
   <% @sweet.vendors.each do |vendor| %>
   <li>
-    🛍 <%=link_to vendor.name, vendor_path(vendor) %>
+     <%=link_to vendor.name, vendor_path(vendor) %>
   </li>
   <% end %>
 </ul>

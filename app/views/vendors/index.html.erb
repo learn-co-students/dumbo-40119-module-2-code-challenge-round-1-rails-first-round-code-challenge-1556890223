@@ -1,8 +1,8 @@
 <h1>🛒 Vendor Index 🛒 </h1>
 
-<h3>Select a Vendor to view their Sweets:</h3>
+<h3>Select a Sweet to view their Vendors:</h3>
 <ul>
   <% @vendors.each do |vendor| %>
-    <li>🛍 <%=link_to vendor.name, vendor_path(vendor) %></li>
+    <li><%=link_to vendor.name, vendor_path(vendor) %></li>
   <% end  %>
 </ul>

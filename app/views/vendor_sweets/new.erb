@@ -1,0 +1,18 @@
+<h1>Create an Order</h1>
+
+<% if @vendor_sweet.errors.full_messages.any? %>
+<% @vendor_sweet.errors.full_messages.each do |message| %>
+    <%= message %> <br />
+  <% end %>
+  <% end %>
+<ul>
+  <%= form_for @vendor_sweet do |f| %>
+  <li><%= f.label :vendor %></li>
+  <%= f.collection_select(:vendor_id, Vendor.all, :id, :name) %>
+  <li><%= f.label :sweet %></li>
+  <%= f.collection_select(:sweet_id, Sweet.all, :id, :name) %>
+  <li><%= f.label :price %></li>
+  <%= f.number_field :price %>
+  <%= f.submit "Submit" %>
+  <% end %>
+</ul>

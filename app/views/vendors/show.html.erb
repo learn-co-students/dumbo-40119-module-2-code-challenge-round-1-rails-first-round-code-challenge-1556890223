@@ -1,0 +1,14 @@
+<h1>show</h1>
+
+<p> <%= @vendors.name %> </p>
+
+
+
+<ul>
+    <% @vendors.each do |ven| %>
+
+  <li><%= link_to ven.name, ven %> </li>
+
+  <% end %>
+
+</ul>

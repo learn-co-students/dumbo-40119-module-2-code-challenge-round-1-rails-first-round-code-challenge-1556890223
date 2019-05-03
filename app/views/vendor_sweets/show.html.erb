@@ -1,0 +1,12 @@
+<h1>show</h1>
+
+<p> <%= @VendorSweet.price %> </P>
+
+  ul>
+      <% @svs.each do |vs| %>
+
+    <li><%= link_to vs.price, vs %> </li>
+
+    <% end %>
+
+  </ul>

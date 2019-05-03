@@ -1,0 +1,13 @@
+<h1>show</h1>
+
+<p> <%= @sweets.name %> </p>
+<p>
+
+<ul>
+    <% @sweets.each do |swe| %>
+
+  <li><%= link_to swe.name, swe %> </li>
+
+  <% end %>
+
+</ul>

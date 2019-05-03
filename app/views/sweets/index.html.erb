@@ -5,3 +5,9 @@
     <li><%= sweet.name %></li>
   <% end  %>
 </ul>
+
+<ul>
+<% @sweets.each do |sweet| %>
+<li><%=  link_to sweet.name, sweet %></li>
+<% end %>
+</ul>

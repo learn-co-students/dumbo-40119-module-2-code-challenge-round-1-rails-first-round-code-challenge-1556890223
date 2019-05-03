@@ -2,6 +2,8 @@
 
 <ul>
   <% @sweets.each do |sweet| %>
-    <li><%= sweet.name %></li>
+    <li><%= link_to sweet.name, sweet_path(sweet) %></li>
   <% end  %>
 </ul>
+
+<p><%= link_to "Create Sweet for Vendor", new_vendor_sweet_path %>

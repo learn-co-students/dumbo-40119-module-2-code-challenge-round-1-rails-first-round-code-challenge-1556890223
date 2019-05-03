@@ -1,0 +1,11 @@
+<h1><%= @sweet.name %></h1>
+<h2>Vendors:</h2>
+<p><% @sweet.vendors.each do |v| %>
+   <%= link_to v.name, vendor_path(v.id) %>
+   <% end %>
+</p>
+
+<h3>Back to Index:</h3>
+<p><%= link_to "Vendor Index", vendors_path %></p>
+<p><%= link_to "Sweets Index", sweets_path %></p>
+<p><%= link_to "Price Index", vendor_sweets_path %></p>

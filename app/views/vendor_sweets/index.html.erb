@@ -1,0 +1,10 @@
+<h1>All Vendor Sweets</h1>
+
+<ul>
+  <% @vendor_sweets.each do |sweet| %>
+    <li>Vendor: <%= sweet.vendor.name %></li>
+    <li>Sweet: <%= sweet.sweet.name %></li>
+    <li>Price: <%= sweet.price %> cents</li>
+    <br><br>
+  <% end  %>
+</ul>

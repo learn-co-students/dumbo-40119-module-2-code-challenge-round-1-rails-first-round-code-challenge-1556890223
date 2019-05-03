@@ -1,0 +1,10 @@
+<h1><%= link_to "#{@stock.vendor.name}", @stock.vendor %> Stock</h1>
+
+<p>Name:<%= @stock.sweet.name %></p>
+<p>Price:<%= @stock.price %></p>
+
+<%= button_to "Edit", edit_stock_path, method: :get %>
+
+<%= button_to "Back to Sweets", sweets_path, method: :get %>
+
+<%= button_to "Back to Vendor", vendors_path, method: :get %>

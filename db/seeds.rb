@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Stock.destroy_all
 Vendor.destroy_all
 Sweet.destroy_all
 
@@ -19,3 +20,12 @@ end
 sweets.each do |sweet|
   Sweet.create(name: sweet)
 end
+
+vs1 = Stock.create(vendor_id:Vendor.first.id,sweet_id:Sweet.first.id)
+vs2 = Stock.create(vendor_id:Vendor.second.id,sweet_id:Sweet.second.id)
+vs3 = Stock.create(vendor_id:Vendor.third.id,sweet_id:Sweet.third.id)
+vs4 = Stock.create(vendor_id:Vendor.fourth.id,sweet_id:Sweet.fourth.id)
+vs5 = Stock.create(vendor_id:Vendor.fifth.id,sweet_id:Sweet.fifth.id)
+vs6 = Stock.create(vendor_id:Vendor.last.id,sweet_id:Sweet.last.id)
+
+puts "Done"

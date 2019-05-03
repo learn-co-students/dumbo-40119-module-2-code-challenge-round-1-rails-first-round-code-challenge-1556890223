@@ -1,0 +1,14 @@
+<h1><%= @vendor.name.titleize %></h1>
+
+<h3>Sweets Offered</h3>
+<ul>
+	<% @vendor.sweets.each do |sweet| %>
+		<li><%= link_to "#{sweet.name.titleize}", sweet %></li>
+	<% end %>
+</ul>
+
+<%= button_to "Edit #{@vendor.name.titleize}", edit_vendor_path, method: :get %>
+
+<%= button_to "Delete #{@vendor.name.titleize}", @shoe, method: :delete %>
+
+<%= button_to "Back to Vendor", vendors_path, method: :get %>

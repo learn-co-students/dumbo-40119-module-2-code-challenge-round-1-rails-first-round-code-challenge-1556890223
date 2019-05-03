@@ -1,0 +1,17 @@
+<div>
+	<% @stock.errors.full_messages.each do |message| %>
+		<p><%= message %></p>
+	<% end %>
+</div>
+
+<%= form_for @stock do |form| %>
+	<%= form.label :sweet_id %>
+	<%= form.collection_select :sweet_id, @sweets, :id, :name%>
+	<br>
+	<%= form.label :vendor_id %>
+	<%= form.collection_select :vendor_id, @vendors, :id, :name%>
+	<br>
+	<%= form.label :price %>
+	<%= form.number_field :price %>
+<%= form.submit %>
+<% end %>

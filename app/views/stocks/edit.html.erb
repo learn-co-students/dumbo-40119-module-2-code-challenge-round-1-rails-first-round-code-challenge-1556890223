@@ -1,0 +1,7 @@
+<h1><%= @stock.vendor.name %></h1>
+
+<%= render "form" %>
+
+<%= button_to "Back to Sweets", sweets_path, method: :get %>
+
+<%= button_to "Back to Vendor", vendors_path, method: :get %>

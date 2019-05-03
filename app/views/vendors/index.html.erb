@@ -2,6 +2,13 @@
 
 <ul>
   <% @vendors.each do |vendor| %>
-    <li><%= vendor.name %></li>
+    <li><%= link_to "#{vendor.name.titleize}", vendor %></li>
   <% end  %>
 </ul>
+
+<%= button_to "Make a New Vendor", new_vendor_path, method: :get %>
+
+<%= button_to "Create Stock For Vendor", new_stock_path, method: :get %>
+
+
+<%= button_to "Back to Sweets", sweets_path, method: :get %>

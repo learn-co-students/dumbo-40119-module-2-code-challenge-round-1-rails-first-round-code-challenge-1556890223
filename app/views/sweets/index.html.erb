@@ -4,6 +4,9 @@
 
 <ul>
   <% @sweets.each do |sweet| %>
-    <li><%= link_to sweet.name, sweet_path(sweet) %></li>
+  <% @vendor_sweet = sweet.vendor_sweets.find { |vs| vs.sweet_id == sweet.id} %>
+    <li><%= link_to sweet.name, sweet_path(sweet) %> at
+        <%= @vendor_sweet.price %>¢
+    </li>
   <% end  %>
 </ul>

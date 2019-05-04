@@ -7,7 +7,7 @@ class VendorSweetsController < ApplicationController
   def create
     @vendor_sweet = VendorSweet.create(vendor_sweet_params)
     if @vendor_sweet.valid?
-      redirect_to vendor_path(params[:vendor_sweet][:vendor_id])
+      redirect_to vendor_path(@vendor_sweet.vendor_id)
     else
       render :new
     end
@@ -17,4 +17,5 @@ class VendorSweetsController < ApplicationController
   def vendor_sweet_params
     params.require(:vendor_sweet).permit(:price, :sweet_id, :vendor_id)
   end
+
 end

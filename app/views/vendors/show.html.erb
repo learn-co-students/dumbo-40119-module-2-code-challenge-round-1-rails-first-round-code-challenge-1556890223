@@ -6,8 +6,16 @@
 
 <ul>
   <% @vendor.sweets.each do |sweet| %>
+  <% @vendor_sweet = sweet.vendor_sweets.find { |vs| vs.vendor_id == @vendor.id} %>
     <li>
-     <%= link_to sweet.name, sweet_path(sweet) %>
+     <%= link_to sweet.name, sweet_path(sweet) %> at
+     <!-- added formatting for dollars vs. cents -->
+     <% if @vendor_sweet.price > 100 %>
+     <!--ex 200: reverse string(002), grab first two digits (the "cents"), go back two spaces and add a decimal point(00.2), reverse again(2.00) -->
+       $<%= @vendor_sweet.price.to_s.reverse.gsub(/(\d{2})/, '\\1.').reverse %>
+     <% else %>
+       <%= @vendor_sweet.price %>¢
+     <% end %>
     </li>
     <% end %>
 </ul>

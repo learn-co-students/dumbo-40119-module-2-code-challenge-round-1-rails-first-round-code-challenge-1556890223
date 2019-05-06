@@ -1,6 +1,9 @@
 class VendorSweetsController < ApplicationController
 
   def new
+    @vendors = Vendor.all
+    @sweets = Sweet.all
+    @vendor = Vendor.find(params[:vendor])
     @vendorsweet = VendorSweet.new
   end
 
@@ -11,6 +14,27 @@ class VendorSweetsController < ApplicationController
       redirect_to vendor_path(@vendor)
     else
       render 'new'
+    end
+  end
+
+  def edit
+    @vendors = Vendor.all
+    @sweets = Sweet.all
+    if params[:vendor]
+      @vendor = Vendor.find(params[:vendor])
+    end
+    @vendorsweet = VendorSweet.find(params[:id])
+  end
+
+  def update
+    @vendor = Vendor.find(params[:vendor_sweet][:vendor_id])
+    @vendorsweet = VendorSweet.find(params[:id])
+    if @vendorsweet.update(vendorsweet_params)
+      redirect_to @vendor
+    else
+      @vendors = Vendor.all
+      @sweets = Sweet.all
+      render 'edit'
     end
   end
 

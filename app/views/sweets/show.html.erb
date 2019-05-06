@@ -3,10 +3,14 @@
 <h1><%= @sweet.name %></h1>
 
 <h3>Sold at these locations:</h3>
-<ul>
-  <% @sweet.vendors.each do |vendor| %>
-  <li>
-    <%= link_to vendor.name, vendor %>
-  </li>
-  <% end %>
-</ul>
+<% if @sweet.vendors == [] %>
+  <p>This sweet isn't carried by any vendors at the moment. Check back soon!</p>
+<% else %>
+  <ul>
+    <% @sweet.vendors.each do |vendor| %>
+    <li>
+      <%= link_to vendor.name, vendor %>
+    </li>
+    <% end %>
+  </ul>
+<% end %>

@@ -3,17 +3,22 @@
 <h1><%= @vendor.name %></h1>
 
 <ul>
-  <% @vendor.sweets.each do |sweet| %>
-  <% @vendor_sweet = sweet.vendor_sweets.find{|vs| vs.vendor_id == @vendor.id} %>
-  <li>
-    <%= link_to sweet.name, sweet %> for
-    <% if @vendor_sweet.price > 100 %>
-      $<%= @vendor_sweet.price.to_s.reverse.gsub(/(\d{2})/, '\\1.').reverse %>
-    <% else %>
-      <%= @vendor_sweet.price %>¢
-    <% end %>
-    <!-- I ran out of time to add the edit, but that's what I would do next -->
-    <!-- <%= button_to "Edit Item", @vendor_sweet %> -->
-  </li>
+  <% if @vendor.sweets == [] %>
+    <p>This vendor is new and has no sweets to sell. Check back soon!</p>
+  <% else %>
+    <% @vendor.sweets.each do |sweet| %>
+    <% @vendorsweet = sweet.vendor_sweets.find{|vs| vs.vendor_id == @vendor.id} %>
+    <li>
+      <%= link_to sweet.name, sweet %> for
+      <% if @vendorsweet.price > 100 %>
+        $<%= @vendorsweet.price.to_s.reverse.gsub(/(\d{2})/, '\\1.').reverse %>
+      <% else %>
+        <%= @vendorsweet.price %>¢
+      <% end %>
+      <%= button_to "Edit Item", edit_vendor_sweet_path(@vendorsweet), method: :get %>
+      <br>
+    </li>
   <% end %>
+<% end %>
 </ul>
+<%= link_to "List New Sweet for Sale", new_vendor_sweet_path(vendor: @vendor) %>

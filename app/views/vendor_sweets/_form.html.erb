@@ -16,12 +16,19 @@
   <%= f.number_field :price %>
   <br>
   <%= f.label :vendor_id, "Vendor" %>
-  <%= f.collection_select :vendor_id, Vendor.all, :id, :name %>
+  <% if @vendor %>
+    <%= f.collection_select :vendor_id, @vendors, :id, :name, {selected: @vendor.id} %>
+  <% else %>
+    <%= f.collection_select :vendor_id, @vendors, :id, :name %>
+  <% end %>
   <br>
   <%= f.label :sweet_id, "Sweet" %>
-  <%= f.collection_select :sweet_id, Sweet.all, :id, :name %>
+  <%= f.collection_select :sweet_id, @sweets, :id, :name, {prompt: true} %>
   <br><br><br>
-  <%= f.submit %>
+  <% if @vendor %>
+    <% f.hidden_field vendor: @vendor%>
+  <% end %>
+  <%= f.submit "Post Listing" %>
   <% end %>
   <br><br><br><br>
 <%= link_to "Go Back", vendors_path, method: :get %>
